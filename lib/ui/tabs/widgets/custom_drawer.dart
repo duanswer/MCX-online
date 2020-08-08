@@ -1,12 +1,9 @@
 import 'package:atm_online/ui/tabs/tiles/drawer_tile.dart';
 import 'package:flutter/material.dart';
 
-class CustomDrawer extends StatefulWidget {
-  @override
-  _CustomDrawerState createState() => _CustomDrawerState();
-}
-
-class _CustomDrawerState extends State<CustomDrawer> {
+class CustomDrawer extends StatelessWidget {
+  final PageController pageController;
+  CustomDrawer(this.pageController);
   @override
   Widget build(BuildContext context) {
     Widget _buildDrawerBack() => Container(
@@ -67,10 +64,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
               ),
               Divider(),
-              DrawerTile(Icons.home, "Início"),
-              DrawerTile(Icons.location_on, "Selecione ATMs favoritos"),
-              DrawerTile(Icons.playlist_add_check, "Meus ATMs"),
-              DrawerTile(Icons.help, "Ajuda e suporte")
+              DrawerTile(Icons.home, "Início", pageController, 0),
+              DrawerTile(Icons.location_on, "Selecione ATMs favoritos",
+                  pageController, 1),
+              DrawerTile(
+                  Icons.playlist_add_check, "Meus ATMs", pageController, 2),
+              DrawerTile(Icons.help, "Ajuda e suporte", pageController, 3)
             ],
           )
         ],

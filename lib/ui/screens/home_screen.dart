@@ -1,5 +1,6 @@
 import 'package:atm_online/ui/tabs/homePage.dart';
 import 'package:atm_online/ui/tabs/widgets/custom_drawer.dart';
+import 'package:atm_online/ui/tabs/widgets/shoose_atm.dart';
 import 'package:flutter/material.dart';
 
 class HomeSreen extends StatelessWidget {
@@ -20,8 +21,22 @@ class HomeSreen extends StatelessWidget {
             backgroundColor: Colors.orange,
           ),
           body: HomePage(),
-          drawer: CustomDrawer(),
-        )
+          drawer: CustomDrawer(_pageController),
+        ),
+        Scaffold(
+          appBar: AppBar(
+            title: Text("Selecione um ATM no mapa"),
+            centerTitle: true,
+          ),
+          body: ChooseAtm(),
+          drawer: CustomDrawer(_pageController),
+        ),
+        Container(
+          color: Colors.blue,
+        ),
+        Container(
+          color: Colors.red,
+        ),
       ],
     );
   }
