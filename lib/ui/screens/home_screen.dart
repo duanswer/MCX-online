@@ -23,6 +23,12 @@ class HomeSreen extends StatelessWidget {
             centerTitle: true,
             backgroundColor: Colors.orange,
             iconTheme: IconThemeData(color: Colors.white),
+            actions: <Widget>[
+              Icon(
+                Icons.search,
+                color: Colors.white,
+              )
+            ],
           ),
           body: HomePage(),
           drawer: CustomDrawer(_pageController),
