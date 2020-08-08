@@ -1,4 +1,4 @@
-import 'package:atm_online/ui/HomePage.dart';
+import 'package:atm_online/ui/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class _IntroPageState extends State<IntroPage> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: [Colors.orange, Colors.orangeAccent],
+              colors: [Colors.orange, Colors.orange],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter),
         ),
@@ -61,7 +61,7 @@ class _IntroPageState extends State<IntroPage> {
                   fontWeight: FontWeight.bold),
             ),
             Text(
-              "é um aplicativo que lhe permite ver todos os ATMs\do território angolano",
+              "é um aplicativo que lhe permite ver todos os ATMs/do território angolano",
               style:
                   TextStyle(fontSize: 18.0, color: Colors.white, height: 1.5),
               textAlign: TextAlign.center,
@@ -71,7 +71,7 @@ class _IntroPageState extends State<IntroPage> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (_) => HomePage(),
+                    builder: (_) => HomeSreen(),
                   ),
                 );
               },
