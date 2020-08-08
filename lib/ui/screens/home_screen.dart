@@ -15,7 +15,10 @@ class HomeSreen extends StatelessWidget {
           appBar: AppBar(
             title: Text(
               "MCX Online",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal),
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white),
             ),
             centerTitle: true,
             backgroundColor: Colors.orange,
@@ -25,7 +28,10 @@ class HomeSreen extends StatelessWidget {
         ),
         Scaffold(
           appBar: AppBar(
-            title: Text("Selecione um ATM no mapa"),
+            title: Text(
+              "Selecione um ATM no mapa",
+              style: TextStyle(color: Colors.white),
+            ),
             centerTitle: true,
             backgroundColor: Colors.orange,
           ),
