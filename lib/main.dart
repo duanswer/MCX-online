@@ -5,7 +5,10 @@ void main() {
   runApp(MaterialApp(
     home: IntroPage(),
     title: "ATM Online",
-    theme: ThemeData(primarySwatch: Colors.orange, primaryColor: Colors.white),
+    theme: ThemeData(
+        primarySwatch: Colors.orange,
+        primaryColor: Colors.white,
+        hintColor: Colors.white),
     debugShowCheckedModeBanner: false,
   ));
 }
