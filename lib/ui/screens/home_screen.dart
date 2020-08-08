@@ -1,3 +1,4 @@
+import 'package:atm_online/delegates/data_search.dart';
 import 'package:atm_online/ui/tabs/homePage.dart';
 import 'package:atm_online/ui/tabs/widgets/custom_drawer.dart';
 import 'package:atm_online/ui/tabs/widgets/shoose_atm.dart';
@@ -24,10 +25,13 @@ class HomeSreen extends StatelessWidget {
             backgroundColor: Colors.orange,
             iconTheme: IconThemeData(color: Colors.white),
             actions: <Widget>[
-              Icon(
-                Icons.search,
+              IconButton(
+                icon: Icon(Icons.search),
                 color: Colors.white,
-              )
+                onPressed: () {
+                  showSearch(context: context, delegate: DataSearch());
+                },
+              ),
             ],
           ),
           body: HomePage(),
