@@ -8,15 +8,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Multicaixa Online",
-          style: TextStyle(fontSize: 22),
-        ),
-        backgroundColor: Colors.orange,
-        centerTitle: true,
-      ),
-    );
+    return Scaffold();
   }
 }

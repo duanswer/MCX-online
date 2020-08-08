@@ -61,7 +61,7 @@ class _IntroPageState extends State<IntroPage> {
                   fontWeight: FontWeight.bold),
             ),
             Text(
-              "é um aplicativo que lhe permite ver todos os ATMs/do território angolano",
+              "é um aplicativo que lhe permite ver todos os ATMs\ndo território angolano",
               style:
                   TextStyle(fontSize: 18.0, color: Colors.white, height: 1.5),
               textAlign: TextAlign.center,
