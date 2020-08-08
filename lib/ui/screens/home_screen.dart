@@ -27,6 +27,7 @@ class HomeSreen extends StatelessWidget {
           appBar: AppBar(
             title: Text("Selecione um ATM no mapa"),
             centerTitle: true,
+            backgroundColor: Colors.orange,
           ),
           body: ChooseAtm(),
           drawer: CustomDrawer(_pageController),

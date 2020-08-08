@@ -25,7 +25,7 @@ class DrawerTile extends StatelessWidget {
                     ? Colors.orange
                     : Colors.black,
               ),
-              SizedBox(width: 32),
+              SizedBox(width: 28),
               Text(
                 text,
                 style: TextStyle(

@@ -69,7 +69,8 @@ class CustomDrawer extends StatelessWidget {
                   pageController, 1),
               DrawerTile(
                   Icons.playlist_add_check, "Meus ATMs", pageController, 2),
-              DrawerTile(Icons.help, "Ajuda e suporte", pageController, 3)
+              DrawerTile(Icons.help, "Ajuda e suporte", pageController, 3),
+              DrawerTile(Icons.info, "Sobre MCX Online", pageController, 4)
             ],
           )
         ],
