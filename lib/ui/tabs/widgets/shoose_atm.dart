@@ -6,6 +6,10 @@ class ChooseAtm extends StatefulWidget {
 }
 
 class _ChooseAtmState extends State<ChooseAtm> {
+  List _listATM = ["Kimpa Vita", "Maculusso", "Viana", "Belas"];
+
+  _openMap() {}
+  _removeATM() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +21,41 @@ class _ChooseAtmState extends State<ChooseAtm> {
           color: Colors.white,
         ),
         backgroundColor: Colors.orange,
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+              child: ListView.builder(
+            itemCount: _listATM.length,
+            itemBuilder: (context, index) {
+              String title = _listATM[index];
+              return GestureDetector(
+                onTap: () {
+                  _openMap();
+                },
+                child: Card(
+                  child: ListTile(
+                    title: Text(title),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: () {
+                            _removeATM();
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Icon(Icons.remove_circle, color: Colors.red),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ))
+        ],
       ),
     );
   }
