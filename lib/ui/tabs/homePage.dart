@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,10 +10,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Completer<GoogleMapController> _controller = Completer();
+  CameraPosition _positionCamera = CameraPosition(
+    target: LatLng(-8.819705, 13.237043),
+    zoom: 16,
+  );
   Set<Marker> _markers = {};
 
   _onMapCreated(GoogleMapController googleMapController) {
     _controller.complete(googleMapController);
+  }
+
+  _movingCamera() async {
+    GoogleMapController googleMapController = await _controller.future;
+    googleMapController
+        .animateCamera(CameraUpdate.newCameraPosition(_positionCamera));
   }
 
   _loadMarkers() {
@@ -53,10 +64,38 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  _getCurrentPosition() async {
+    Position position = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    setState(() {
+      _positionCamera = CameraPosition(
+          target: LatLng(position.latitude, position.longitude), zoom: 17);
+      _movingCamera();
+    });
+  }
+
+  _addingListenerLocation() {
+    var geolocator = Geolocator();
+    var locationOptions = LocationOptions(
+      accuracy: LocationAccuracy.best,
+      distanceFilter: 10,
+    );
+    geolocator.getPositionStream(locationOptions).listen((Position position) {
+      print("Localizaçao atual: " + position.toString());
+      setState(() {
+        _positionCamera = CameraPosition(
+            target: LatLng(position.latitude, position.longitude), zoom: 17);
+        _movingCamera();
+      });
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     _loadMarkers();
+    _getCurrentPosition();
+    _addingListenerLocation();
   }
 
   @override
@@ -65,12 +104,10 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         child: GoogleMap(
           mapType: MapType.normal,
-          initialCameraPosition: CameraPosition(
-            target: LatLng(-8.819705, 13.237043),
-            zoom: 16,
-          ),
+          initialCameraPosition: _positionCamera,
           onMapCreated: _onMapCreated,
           markers: _markers,
+          myLocationEnabled: true,
         ),
       ),
     );
