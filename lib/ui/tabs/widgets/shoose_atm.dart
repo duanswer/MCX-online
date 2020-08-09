@@ -43,6 +43,7 @@ class _ChooseAtmState extends State<ChooseAtm> {
                     FlatButton(
                       child: Text("Ok"),
                       onPressed: () {
+                        Navigator.pop(context);
                         _addATM();
                       },
                     )
