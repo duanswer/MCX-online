@@ -7,13 +7,13 @@ class ChooseAtm extends StatefulWidget {
 }
 
 class _ChooseAtmState extends State<ChooseAtm> {
-  List _listATM = ["Kimpa Vita", "Maculusso", "Viana", "Belas"];
+  List _listATM = ["Kimpa Vita", "Maculusso", "Viana", "Belas", "Camama"];
   List _stateAtm = [
-    "Com notas",
-    "Sem notas",
-    "Com notas",
-    "Com notas",
-    "Sem notas"
+    "Com notas e papel",
+    "Sem notas mas com papel",
+    "Sem notas e papel",
+    "Com notas e papel",
+    "Sem notas mas sem papel"
   ];
 
   _openMap() {}

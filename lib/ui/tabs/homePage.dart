@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
     zoom: 16,
   );
   Set<Marker> _markers = {};
+  Set<Marker> _selectedAtm = {};
 
   _onMapCreated(GoogleMapController googleMapController) {
     _controller.complete(googleMapController);
@@ -81,13 +82,32 @@ class _HomePageState extends State<HomePage> {
       distanceFilter: 10,
     );
     geolocator.getPositionStream(locationOptions).listen((Position position) {
-      print("Localizaçao atual: " + position.toString());
       setState(() {
         _positionCamera = CameraPosition(
             target: LatLng(position.latitude, position.longitude), zoom: 17);
         _movingCamera();
       });
     });
+  }
+
+  //_showMarker
+  _selectAtm(LatLng latLng) async {
+    List<Placemark> atmAdress = await Geolocator()
+        .placemarkFromCoordinates(latLng.latitude, latLng.longitude);
+    if (atmAdress != null && atmAdress.length > 0) {
+      Placemark adressAtm = atmAdress[0];
+      String street = adressAtm.thoroughfare;
+      String locality = adressAtm.locality;
+      String name = adressAtm.name;
+
+      Marker marker = Marker(
+          markerId: MarkerId("marker-${latLng.latitude}-${latLng.longitude}"),
+          position: latLng,
+          infoWindow: InfoWindow(title: "ATM" + locality, snippet: street));
+      setState(() {
+        _selectedAtm.add(marker);
+      });
+    }
   }
 
   @override
@@ -108,6 +128,7 @@ class _HomePageState extends State<HomePage> {
           onMapCreated: _onMapCreated,
           markers: _markers,
           myLocationEnabled: true,
+          onLongPress: _selectAtm,
         ),
       ),
     );

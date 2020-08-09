@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "831893965377",
+    "firebase_url": "https://mcx-online-7d7eb.firebaseio.com",
+    "project_id": "mcx-online-7d7eb",
+    "storage_bucket": "mcx-online-7d7eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831893965377:android:b76159a1651c5f52c854c0",
+        "android_client_info": {
+          "package_name": "com.example.atm_online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831893965377-p2dfopssrjh8vp944e4p0hhqu7co9e81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1IOv5-kY61TIaVeS-Ij5-mbLVvR7GweU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831893965377-p2dfopssrjh8vp944e4p0hhqu7co9e81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
